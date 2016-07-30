@@ -17,52 +17,37 @@ while(guess) do
 
 
 #if level 1 or 2 then run function
-	if difficulty_picked == 1 and 2
-		level12()
-			if number == guess
-				guess = true
-				puts "You guessed correct!"
-		  else
-				guess = false
-				puts "Try again"
-		  end
-
-		#if level 3 then run function
-	else if difficulty_picked == 3
-		level3()
-			if number == guess
-				guess = true
-				puts "You guessed correct!"
-		  else
-				guess = false
-				puts "Try again"
-		  end
+	if difficulty_picked == 1
+		top = 10
+	else if difficulty_picked == 2
+		top = 100
+	else
+		top = 1000
 	end
-
+	
+	computer_number = (1..top).to_a.shuffle.first
 
 #level 1 & 2 function
-	def level12
-		array = (1..100).to_a
-		number = array.shuffle.first
-		return guess
-	end
+	#def level12
+		#array = (1..100).to_a
+		#number = array.shuffle.first
+		#return guess
+	#end
 
 	#level 3 function
-	def level3
-		array = (1..1000).to_a
-		number = array.shuffle.first
-		return guess
-	end
-
-
-	#if number == guess
-	#	guess = true
-	#	puts "You guessed correct!"
-	#else
-	#	guess = false
-	#	puts "Try again"
+	#def level3
+		#array = (1..1000).to_a
+		#number = array.shuffle.first
+		#return guess
 	#end
+
+
+	if computer_number == guess
+		puts "You guessed correct!"
+	else
+		puts "Try again"
+	end
+	end
 end
 
-end
 puts "you guessed #{guess}, and the number was #{number}"
